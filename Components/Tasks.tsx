@@ -8,15 +8,16 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    button: {
-        
-      paddingVertical: 10,
+    button: {              
+      paddingVertical: 10,  
       position: 'absolute',
       right: 10,
-      width: 75
+      width: 71
     
     }
   });
+
+
 
 const Tasks = () => {
     const [task, setTask] = useState<string>("");
@@ -39,8 +40,8 @@ const Tasks = () => {
         <View>                                    
             <StatusBar backgroundColor="#FF5733"/>
             
-                <View style={{ flexDirection: 'row', marginLeft: 5, paddingBottom: 10}}>
-                    <Text style={{fontSize:30, fontWeight:"bold"}}>Tarefa:</Text>
+                <View style={{ flexDirection: 'row', marginLeft: 5, paddingVertical: 10}}>
+                    <Text style={{fontSize:25, fontWeight:"bold", verticalAlign: 'middle' }}>Tarefa:</Text>
                     <TextInput style={{marginLeft:5, backgroundColor: '#E9E9E9', fontSize:20}} onChangeText={setTask} value={task}/>
                     <View style={styles.button}>
                         <Button title="+" onPress={add}/>
@@ -50,11 +51,14 @@ const Tasks = () => {
                     data={tasks}
                     renderItem={({ item, index }) => (
                         
-                        <View style={{ flexDirection: 'row', alignItems: 'center', 
+                        <View style={{ flexDirection: 'row', alignItems: 'center',
+                                       flexWrap: 'wrap', 
                                        justifyContent: 'space-between', 
                                        marginHorizontal: 10,
                                        marginVertical: 5}}>
-                            <Text style={{ fontSize: 25}}>{item}</Text>
+
+                            <Text style={{ fontSize: 20}}>{index + 1}</Text>            
+                            <Text style={{ fontSize: 20}}>{item}</Text>
                             <Button title="Excluir" onPress={() => remove(index)} />
                         </View>
                     )}
