@@ -2,6 +2,7 @@ import { View, TextInput, Button, FlatList, Text, StatusBar, StyleSheet } from "
 import { useState } from "react";
 
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
 const Tasks = () => {
     const [task, setTask] = useState<string>("");
     const [tasks, setTasks] = useState<string[]>([])
+    
 
     const add = () => {        
         if(task != ""){
@@ -44,7 +46,7 @@ const Tasks = () => {
                     <Text style={{fontSize:25, fontWeight:"bold", verticalAlign: 'middle' }}>Tarefa:</Text>
                     <TextInput style={{marginLeft:5, backgroundColor: '#E9E9E9', fontSize:20}} onChangeText={setTask} value={task}/>
                     <View style={styles.button}>
-                        <Button title="+" onPress={add}/>
+                        <Button title="+" onPress={add} />
                     </View>
                 </View>                
                 <FlatList
